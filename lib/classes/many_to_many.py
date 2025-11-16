@@ -1,4 +1,6 @@
 class Article:
+    all = []
+    
     def __init__(self, author, magazine, title):
         if not isinstance(author, Author):
             raise Exception("Author must be an instance of Author")
@@ -16,6 +18,7 @@ class Article:
         # Add this article to the author's and magazine's article lists
         author._articles.append(self)
         magazine._articles.append(self)
+        Article.all.append(self)
 
     @property
     def title(self):
